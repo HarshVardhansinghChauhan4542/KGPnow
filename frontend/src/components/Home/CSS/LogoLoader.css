@@ -1,0 +1,83 @@
+.loader-container {
+  position: fixed;
+  inset: 0;
+  background-color: rgb(255, 255, 255);
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transform-origin: center;
+  padding: 0 1rem;
+}
+
+.logo-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 320px;
+  height: auto;
+}
+
+.logo-outline {
+  width: 100%;
+  display: block;
+  filter: brightness(100);
+  z-index: 1;
+  position: relative;
+}
+
+.logo-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background: linear-gradient(90deg, #cc00ff, #ff00cc);
+  mask-image: url("/KGPnow.png");
+  -webkit-mask-image: url("/KGPnow.png");
+  mask-repeat: no-repeat;
+  -webkit-mask-repeat: no-repeat;
+  mask-size: cover;
+  -webkit-mask-size: cover;
+  z-index: 2;
+}
+
+.loader-bar {
+  width: 100%;
+  max-width: 320px;
+  height: 8px;
+  background-color: #eee;
+  border-radius: 20px;
+  margin: 2rem 0 1rem;
+  overflow: hidden;
+}
+
+.loader-bar-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(to right, #cc00ff, #ff00cc);
+  border-radius: 20px;
+}
+
+.loader-percentage {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: rgb(255, 5, 238);
+  font-family: 'Open Sauce One Medium';
+}
+
+/* Mobile-specific adjustments */
+@media (max-width: 480px) {
+  .logo-wrapper {
+    max-width: 240px;
+  }
+
+  .loader-bar {
+    max-width: 240px;
+    height: 6px;
+  }
+
+  .loader-percentage {
+    font-size: 1.2rem;
+  }
+}

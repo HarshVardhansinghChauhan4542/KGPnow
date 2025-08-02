@@ -1,0 +1,17 @@
+#miniCircle{
+    transition: all cubic-bezier(0.19, 1, 0.22, 1) 1s;
+    width: 45px;
+    height:45px;
+    position: fixed;
+    z-index: 99999;
+    border-radius: 50%;
+    border: 2px solid var(--text-color); 
+    pointer-events: none;
+}
+
+#miniCircle.shrink-dot {
+    width: 8px;
+    height: 8px;
+    background-color: var(--text-color);
+    border: none;
+}

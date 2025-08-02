@@ -1,0 +1,70 @@
+:root {
+  --bg-color: rgb(255, 255, 255);
+  --text-color: rgb(0, 0, 0);
+  --header-bg: rgb(255, 255, 255);
+  --link-color: rgb(0, 0, 0);
+  --link-hover: rgb(130, 0, 112);
+  --toggle-bg: rgb(0, 0, 0);
+}
+
+[data-theme="dark"] {
+  --bg-color: rgb(0, 0, 0);
+  --text-color: rgb(255, 255, 255);
+  --header-bg: rgb(0, 0, 0);
+  --link-color: rgb(255, 255, 255);
+  --link-hover: rgb(255, 105, 180);
+  --toggle-bg: rgb(255, 255, 255);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  /* font-family: "Acumin Pro ExtraCondensed"; */
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: auto;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+
+[data-scroll-container] {
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+[data-scroll-section] {
+  width: 100%;
+  /* min-height: auto; */
+}
+
+@media (max-width: 768px) {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html,
+  body {
+    overflow-x: hidden;
+    /* height: auto; */
+  }
+
+  [data-scroll-container] {
+    padding: 0;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+  }
+
+  [data-scroll-section] {
+    width: 100%;
+  } 
+}
