@@ -1,0 +1,72 @@
+/* OTP Verification specific styles */
+.otp-instruction {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #666;
+  font-size: 0.95rem;
+}
+
+.otp-container {
+  display: flex;
+  justify-content: space-between;
+  margin: 2rem 0;
+  gap: 0.5rem;
+}
+
+.otp-input {
+  width: 3rem;
+  height: 3.5rem;
+  text-align: center;
+  font-size: 1.5rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f8f9fa;
+  transition: all 0.3s ease;
+}
+
+.otp-input:focus {
+  border-color: #8a4baf;
+  box-shadow: 0 0 0 3px rgba(138, 75, 175, 0.2);
+  outline: none;
+}
+
+.resend-otp {
+  text-align: center;
+  margin: 1.5rem 0;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.resend-button {
+  background: none;
+  border: none;
+  color: #8a4baf;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.resend-button:hover:not(:disabled) {
+  background-color: rgba(138, 75, 175, 0.1);
+}
+
+.resend-button:disabled {
+  color: #aaa;
+  cursor: not-allowed;
+  text-decoration: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  .otp-input {
+    width: 2.5rem;
+    height: 3rem;
+    font-size: 1.25rem;
+  }
+  
+  .otp-container {
+    gap: 0.25rem;
+  }
+}

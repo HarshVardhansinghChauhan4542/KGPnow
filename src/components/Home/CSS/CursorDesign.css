@@ -1,17 +1,35 @@
-#miniCircle{
-    transition: all cubic-bezier(0.19, 1, 0.22, 1) 1s;
-    width: 45px;
-    height:45px;
-    position: fixed;
-    z-index: 99999;
-    border-radius: 50%;
-    border: 2px solid var(--text-color); 
-    pointer-events: none;
+.circle {
+  position: fixed;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99999999;
+  transform: translate(-50%, -50%);
+  transition: background-color 0.3s ease;
 }
 
-#miniCircle.shrink-dot {
-    width: 8px;
-    height: 8px;
-    background-color: var(--text-color);
-    border: none;
+html {
+  cursor: none;
+}
+
+a, button, input, textarea, [role="button"], [role="tab"] {
+  cursor: none;
+}
+
+@media (max-width: 768px) {
+  .circle {
+    display: none !important;
+  }
+  
+  html, a, button, input, textarea, [role="button"], [role="tab"] {
+    cursor: auto !important;
+  }
+}
+
+[data-theme="dark"] .circle {
+  background-color: #ffffff !important;
+  border: 1px solid #fff !important;
+}
+[data-theme="light"] .circle {
+  background-color: #000 !important;
+  border: 1px solid #000 !important;
 }

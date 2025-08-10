@@ -1,7 +1,29 @@
 import React, { useEffect, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Tabs = () => {
   const scrollerRef = useRef(null);
+  const navigate = useNavigate();
+
+  // Mapping between image labels and their corresponding routes
+  const labelToRoute = {
+    'Red Oak': '/events/red-oak',
+    'Amazon Forest': '/events/amazon-forest',
+    'Cherry Blossom': '/events/cherry-blossom',
+    'Cascading Waterfall': '/events/waterfall',
+    'Sunset Over the Ocean': '/events/sunset',
+    'Mountains': '/events/mountains',
+    'Fog Forest': '/events/fog-forest',
+    'Autumn Leaves': '/events/autumn-leaves',
+    'Winter Forest': '/events/winter-forest'
+  };
+
+  const handleImageClick = (label) => {
+    const route = labelToRoute[label];
+    if (route) {
+      navigate(route);
+    }
+  };
 
   const images = [
     { src: 'https://images.unsplash.com/photo-1746699421299-ac9d7e868855?w=600&auto=format&fit=crop&q=60', label: 'Red Oak' },
@@ -58,7 +80,12 @@ const Tabs = () => {
       <div id="scroller" ref={scrollerRef}>
         {repeatedImages.map(({ src, label }, i) => (
           <div className="image-wrapper" key={i}>
-            <img src={src} alt={`img-${i}`} />
+            <img 
+              src={src} 
+              alt={`img-${i}`} 
+              onClick={() => handleImageClick(label)}
+              style={{ cursor: 'pointer' }}
+            />
             <p className="image-label">{label}</p>
           </div>
         ))}

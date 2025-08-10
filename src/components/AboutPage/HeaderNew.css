@@ -1,0 +1,352 @@
+#headerContainer {
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--header-bg);
+    padding: 0 2vw;
+    box-sizing: border-box;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+    background-color: rgb(231, 154, 10);
+  }
+  
+  
+  #logoImg img {
+    height: 135px;
+  }
+  
+  #navLinks {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: nowrap;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  
+  #navLinks a {
+    text-decoration: none;
+    font-size: 1em;
+    font-weight: 100;
+    font-family: "Open Sauce one Medium";
+    padding-right: 30px;
+    transition: all 0.3s ease-in-out;
+    color: var(--link-color);
+    white-space: nowrap;
+  }
+  
+  #navLinks a:hover {
+    color: var(--link-hover);
+  }
+  
+  
+  /* Theme Toggle Button */
+  .theme-toggle-button {
+    font-family: "Open Sauce one Medium";
+    background: transparent;
+    border: 1px solid var(--link-color);
+    color: var(--link-color);
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 0.9em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    height: fit-content;
+    margin-left: 10px;
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  .theme-toggle-button:hover {
+    background-color: var(--link-color);
+    color: var(--header-bg);
+    transform: none;
+    box-shadow: none;
+  }
+  
+  /* Hide the old toggle button */
+  #toggleBtn {
+    display: none;
+  }
+  
+  .logout-button {
+    font-family: "Open Sauce one Medium";
+    background: transparent;
+    border: 1px solid var(--link-color);
+    color: var(--link-color);
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 0.9em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+  }
+  
+  .logout-button:hover {
+    background-color: var(--link-color);
+    color: var(--header-bg);
+  }
+  
+  .bounding {
+    overflow: hidden;
+  }
+  
+  .header-anim {
+    display: inline-block;
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  
+  
+  /* Mobile Controls */
+  .mobile-controls {
+    display: none;
+    align-items: center;
+    gap: 15px;
+  }
+
+  /* Hamburger Menu */
+  .hamburger-menu {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 24px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 20;
+  }
+
+  .hamburger-menu .bar {
+    width: 100%;
+    height: 2px;
+    background-color: var(--link-color);
+    transition: all 0.3s ease-in-out;
+    transform-origin: center;
+  }
+
+  .hamburger-menu.open .bar:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  .hamburger-menu.open .bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger-menu.open .bar:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  /* Mobile View */
+  @media (max-width: 768px) {
+    #logoImg img {
+      height: 70px;
+    }
+
+    /* Mobile controls */
+    .mobile-controls {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      z-index: 1001;
+    }
+
+    /* Fullscreen mobile menu */
+    #navLinks {
+      position: fixed !important;
+      top: 0 !important;
+      left: 0 !important;
+      right: 0 !important;
+      bottom: 0 !important;
+      width: auto !important;
+      min-width: 220px;
+      max-width: 90%;
+      margin: 20px auto !important;
+      padding: 40px 20px !important;
+      display: flex !important;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: stretch;
+      z-index: 9999 !important;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+      overflow-y: auto !important;
+      -webkit-overflow-scrolling: touch;
+      touch-action: manipulation;
+      box-sizing: border-box !important;
+      -webkit-box-sizing: border-box !important;
+      -moz-box-sizing: border-box !important;
+      border-radius: 12px;
+      transform: translateZ(0);
+      -webkit-transform: translateZ(0);
+    }
+    
+    /* Light theme */
+    [data-theme="light"] #navLinks {
+      background-color: #ffffff !important;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    }
+    
+    /* Dark theme */
+    [data-theme="dark"] #navLinks {
+      background-color: #1a1a1a !important;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    #navLinks.mobile-visible {
+      opacity: 1;
+      visibility: visible;
+      position: fixed !important;
+      inset: 0 !important;
+    }
+
+    #navLinks .bounding {
+      width: 100%;
+      max-width: 280px;
+      text-align: center;
+      margin: 15px 0;
+      padding: 0 20px;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: all 0.3s ease;
+    }
+
+    #navLinks.mobile-visible .bounding {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Staggered animation for menu items */
+    #navLinks.mobile-visible .bounding:nth-child(1) { transition-delay: 0.1s; }
+    #navLinks.mobile-visible .bounding:nth-child(2) { transition-delay: 0.2s; }
+    #navLinks.mobile-visible .bounding:nth-child(3) { transition-delay: 0.3s; }
+    #navLinks.mobile-visible .bounding:nth-child(4) { transition-delay: 0.4s; }
+
+    #navLinks a, 
+    #navLinks .logout-button,
+    #navLinks .theme-toggle-button {
+      display: block;
+      width: 100%;
+      padding: 12px 20px;
+      margin: 4px 0;
+      font-size: 16px;
+      font-weight: 500;
+      background: transparent;
+      border: none;
+      text-align: left;
+      text-decoration: none;
+      border-radius: 6px;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+    
+    /* Light theme text colors */
+    [data-theme="light"] #navLinks a,
+    [data-theme="light"] #navLinks .logout-button,
+    [data-theme="light"] #navLinks .theme-toggle-button {
+      color: #333333 !important;
+    }
+    
+    [data-theme="light"] #navLinks a:hover,
+    [data-theme="light"] #navLinks .logout-button:hover,
+    [data-theme="light"] #navLinks .theme-toggle-button:hover {
+      background-color: rgba(0, 0, 0, 0.05) !important;
+    }
+    
+    /* Dark theme text colors */
+    [data-theme="dark"] #navLinks a,
+    [data-theme="dark"] #navLinks .logout-button,
+    [data-theme="dark"] #navLinks .theme-toggle-button {
+      color: #ffffff !important;
+    }
+    
+    [data-theme="dark"] #navLinks a:hover,
+    [data-theme="dark"] #navLinks .logout-button:hover,
+    [data-theme="dark"] #navLinks .theme-toggle-button:hover {
+      background-color: rgba(255, 255, 255, 0.1) !important;
+    }
+
+    #navLinks a:hover, 
+    #navLinks .logout-button:hover,
+    #navLinks .theme-toggle-button:hover {
+      transform: translateY(-2px);
+    }
+    
+    /* Light theme hover */
+    [data-theme="light"] #navLinks a:hover,
+    [data-theme="light"] #navLinks .logout-button:hover,
+    [data-theme="light"] #navLinks .theme-toggle-button:hover {
+      background-color: rgba(0, 0, 0, 0.05) !important;
+    }
+    
+    /* Dark theme hover */
+    [data-theme="dark"] #navLinks a:hover,
+    [data-theme="dark"] #navLinks .logout-button:hover,
+    [data-theme="dark"] #navLinks .theme-toggle-button:hover {
+      background-color: rgba(255, 255, 255, 0.1) !important;
+    }
+
+    #navLinks a:active, 
+    #navLinks .logout-button:active,
+    #navLinks .theme-toggle-button:active {
+      transform: translateY(0);
+    }
+    
+    /* Light theme active state */
+    [data-theme="light"] #navLinks a:active,
+    [data-theme="light"] #navLinks .logout-button:active,
+    [data-theme="light"] #navLinks .theme-toggle-button:active {
+      background-color: rgba(0, 0, 0, 0.1) !important;
+    }
+    
+    /* Dark theme active state */
+    [data-theme="dark"] #navLinks a:active,
+    [data-theme="dark"] #navLinks .logout-button:active,
+    [data-theme="dark"] #navLinks .theme-toggle-button:active {
+      background-color: rgba(255, 255, 255, 0.15) !important;
+    }
+
+    .hamburger-menu {
+      display: flex;
+    }
+
+    .desktop-only {
+      display: none;
+    }
+  }
+
+  /* Viewport resets */
+@viewport {
+  width: device-width;
+  height: device-height;
+  zoom: 1.0;
+  min-zoom: 1.0;
+  max-zoom: 1.0;
+  user-zoom: fixed;
+}
+
+/* Ensure html and body take full viewport */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+  /* Ensure theme toggle is visible on mobile */
+  @media (max-width: 768px) {
+    .theme-toggle-button {
+      margin: 0;
+      padding: 8px 16px;
+    }
+  }
