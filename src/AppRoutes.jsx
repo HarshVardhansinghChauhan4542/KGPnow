@@ -42,9 +42,9 @@ const AppRoutes = () => {
       <Route
         path="/"
         element={
-          <PrivateRoute>
+          // <PrivateRoute>
             <Home />
-          </PrivateRoute>
+          // </PrivateRoute>
         }
       />
 
@@ -52,87 +52,87 @@ const AppRoutes = () => {
       <Route
         path="/about"
         element={
-          <ProtectedRoute>
+          // <ProtectedRoute>
             <About />
-          </ProtectedRoute>
+          // </ProtectedRoute>
         }
       />
 
-      {/* Event Pages (Protected) */}
+      {/* Event Pages */}
       <Route
         path="/events/amazon-forest"
         element={
-          <ProtectedRoute>
+          // <ProtectedRoute>
             <AmazonForest />
-          </ProtectedRoute>
+          // </ProtectedRoute>
         }
       />
       <Route
         path="/events/cherry-blossom"
         element={
-          <ProtectedRoute>
+          // <ProtectedRoute>
             <CherryBlossom />
-          </ProtectedRoute>
+          // </ProtectedRoute>
         }
       />
       <Route
         path="/events/autumn-leaves"
         element={
-          <ProtectedRoute>
+          // <ProtectedRoute>
             <AutumnLeaves />
-          </ProtectedRoute>
+          // </ProtectedRoute>
         }
       />
       <Route
         path="/events/fog-forest"
         element={
-          <ProtectedRoute>
+          // <ProtectedRoute>
             <FogForest />
-          </ProtectedRoute>
+          // </ProtectedRoute>
         }
       />
       <Route
         path="/events/mountains"
         element={
-          <ProtectedRoute>
+          // <ProtectedRoute>
             <Mountains />
-          </ProtectedRoute>
+          // </ProtectedRoute>
         }
       />
       <Route
         path="/events/waterfall"
         element={
-          <ProtectedRoute>
+          // <ProtectedRoute>
             <WaterFall />
-          </ProtectedRoute>
+          // </ProtectedRoute>
         }
       />
       <Route
         path="/events/sunset"
         element={
-          <ProtectedRoute>
+          // <ProtectedRoute>
             <Sunset />
-          </ProtectedRoute>
+          // </ProtectedRoute>
         }
       />
       <Route
         path="/events/winter-forest"
         element={
-          <ProtectedRoute>
+          // <ProtectedRoute>
             <WinterForest />
-          </ProtectedRoute>
+          // </ProtectedRoute>
         }
       />
       <Route
         path="/events/red-oak"
         element={
-          <ProtectedRoute>
+          // <ProtectedRoute>
             <RedOak />
-          </ProtectedRoute>
+          // </ProtectedRoute>
         }
       />
 
-      {/* Event Details Page (Public/Protected as needed) */}
+      {/* Event Details Page */}
       <Route path="/events/details/:id" element={<EventDetails />} />
 
       {/* Auth Pages */}
